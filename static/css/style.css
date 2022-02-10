@@ -8,10 +8,3 @@ body{
     position: relative;
     height: auto;
 }
-.footer{
-    bottom: 0;
-    left: 0;
-    height: auto;
-    padding: 10px;
-    position: fixed;
-}
