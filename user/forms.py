@@ -5,12 +5,12 @@ from .models import Petowner
 
 class RegisterForm(forms.ModelForm):
     username=forms.CharField(label="Username")
-    password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class': 'myclass'}))
-    first_name = forms.CharField(label="Ad", required=True)
-    last_name = forms.CharField(label="Soyad", required=True)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput())
+    first_name = forms.CharField(label="First Name", required=True)
+    last_name = forms.CharField(label="Last Name", required=True)
     email = forms.CharField(label="E-mail", required=False)
-    tel = forms.CharField(label="Telefon", required=True)
-    address = forms.CharField(label="Adres", required=False)
+    tel = forms.CharField(label="Phone", required=True)
+    address = forms.CharField(label="Address", required=False)
     class Meta:
         model=User
         fields=["username","password", "first_name", "last_name", "email", "tel", "address"]
@@ -21,12 +21,12 @@ class RegisterForm(forms.ModelForm):
         username = self.cleaned_data.get('username')
         qs = User.objects.filter(username = username)
         if qs.exists():
-            raise forms.ValidationError("Bu kullanıcı adı sistemde kayıtlı.Lütfen başka bir kullanıcı adı seçiniz.")
+            raise forms.ValidationError("This username is registered in the system. Please choose another username.")
         return username
 
 class LoginForm(forms.Form):
     username=forms.CharField(label="Username")
-    password=forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class':'myclass'}))
+    password=forms.CharField(label="Password", widget=forms.PasswordInput())
     class Meta:
         model=User
         fields=["username","password"]
