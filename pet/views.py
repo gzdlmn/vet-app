@@ -9,9 +9,7 @@ from user.models import Petowner
 
 # Create your views here.
 
-#Tüm hayvanları ve hayvan sahiplerini göreceği sayfa
-#Yetki sadece giriş yapmış superuser için. Onun dışındakiler page not found 404 hatası alır
-#(Bu sayfa normal kullanıcılar için navbarda gösterilmez. Yine de arama çubuğuna yazıp gitmek isterse hata alır)
+#Only logged in superuser will see this page. Normal users will see 404 not found. When project publish, this page will be a real error page.
 @login_required(login_url="user:login")
 @user_passes_test(lambda u: u.is_superuser)
 def all_pets(request):
@@ -24,7 +22,7 @@ def all_pets(request):
     pets = Pet.objects.all()
     return render(request, "pets.html", {"pets": pets, "form":form})
 
-#Kullanıcı kayıt olduktan sonra hayvanını eklemek için buraya yönlenir
+#User will come here after registration and then he/she will write his/her pet's attr.
 def add_pet(request):
     form = PetForm(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -35,13 +33,12 @@ def add_pet(request):
         return redirect("homepage")
     return render(request, "addpet.html", {"form":form})
 
-#id ye ihtiyacım var güncellemek ve silmek için. Çünkü hayvan sahibinin birden fazla hayvanı olabilir.
-#filter orm yerine get_object_404 kullanıldı
+#I need an id.  Because The user can have more than one animal. get_object_or_404 instead of filter
 def detail(request,id):
     pet = get_object_or_404(Pet, id=id)
     return render(request, "detail.html", {"pet":pet})
 
-#Güncelleme
+#update. only superuser can see this page and edit
 def update(request, id):
     pet = get_object_or_404(Pet, id=id)
     form = PetForm(request.POST or None, request.FILES or None, instance=pet)
@@ -50,7 +47,7 @@ def update(request, id):
         pet.save()
         return redirect("pet:pets")
     return render(request, "update.html", {"form":form})
-#Silme
+#delete. only superuser
 def delete(request, id):
     pet = get_object_or_404(Pet, id=id)
     pet.delete()
