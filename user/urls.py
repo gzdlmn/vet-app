@@ -7,5 +7,5 @@ urlpatterns=[
     path('register/', views.register, name="register"),
     path('login/', views.loginUser, name="login"),
     path('logout/', views.logoutUser, name="logout"),
-    path('petowner/<username>', views.petowner, name="petowner"), #kullanıcıya özel sayfa
+    path('petowner/<username>', views.petowner, name="petowner"), #special page for user /petowner/username/blablaba..
 ]
