@@ -7,10 +7,10 @@
             <div class="card">
                 <h2 class="text-center text-muted">Pet'S Identity Card</h2>
                 <div class="card-header">
-                    <h1 class="text-right">{{pet.petowner}}</h1>
+                    <h1 class="text-right">{{pet.petowner.first_name}} {{pet.petowner.last_name}}</h1>
                     <div class="row">
                         <div class="col-md-6 col-lg-10 text-center">
-                            <h2>{{pet.name}}</h2>
+                            <h2>Name: {{pet.name}}</h2>
                             <h4>Type: {{pet.type}}</h4>
                             <h4>Genius: {{pet.genius}}</h4>
                             <h4>Age: {{pet.age}}</h4>
