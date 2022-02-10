@@ -29,7 +29,7 @@ def add_pet(request):
         pet = form.save(commit=False)
         pet.petowner = request.user
         pet.save()
-        messages.success(request, "Can dostumuz kliniğimize kaydedildi")
+        messages.success(request, "Your pet is registered to us clicic:)")
         return redirect("homepage")
     return render(request, "addpet.html", {"form":form})
 
