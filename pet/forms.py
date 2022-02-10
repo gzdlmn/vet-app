@@ -1,18 +1,18 @@
 from django import forms
 from .models import Pet
 
-#formu modelden türetiyoruz.
-#sadece siteye kayıt olmuş kullanıcı hayvanını ekleyebilir. Bu yüzden petowner göstermeye gerek yok. Kendine ait formu dolduracak.
+#only registered users can add their pet. The user can see this form after registering.
 class PetForm(forms.ModelForm):
-    name = forms.CharField(label="Can Dostumuz Adı:")
-    type = forms.CharField(label="Tür: köpek,kedi,kuş...")
-    genius = forms.CharField(label="Cins: terrier,iran kedisi,sultan papağanı...varsa cinsi:")
-    image = forms.FileField(label="Lütfen kare bir resim yükleyiniz")
+    name = forms.CharField(label="Your pet's name:")
+    type = forms.CharField(label="Type: dog,cat,bird..etc")
+    genius = forms.CharField(label="Genius: terrier,poddle,chihuahua...etc:")
+    image = forms.FileField(label="Please your pet's image must be square")
     class Meta:
         model = Pet
         fields = ["image", "name", "type", "genius", "age", "explanation"]
 
-#Bu bir modele ait değil get atan arama formu
+
+#This form is there for searching. method = get. Model is not unnecessary. 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class':'form-control'}))
 
