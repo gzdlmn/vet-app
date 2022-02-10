@@ -5,15 +5,15 @@
     <header class="container-fluid bg-warning">
         <div class="container">
             <div class="card">
-                <h2 class="text-center text-muted">Can Dostumuz Klinik Bilgileri</h2>
+                <h2 class="text-center text-muted">Pet'S Identity Card</h2>
                 <div class="card-header">
                     <h1 class="text-right">{{pet.petowner}}</h1>
                     <div class="row">
                         <div class="col-md-6 col-lg-10 text-center">
                             <h2>{{pet.name}}</h2>
-                            <h4>Tür: {{pet.type}}</h4>
-                            <h4>Cins: {{pet.genius}}</h4>
-                            <h4>Yaş: {{pet.age}}</h4>
+                            <h4>Type: {{pet.type}}</h4>
+                            <h4>Genius: {{pet.genius}}</h4>
+                            <h4>Age: {{pet.age}}</h4>
                         </div>
                         {% if pet.image %}
                         <div class="col-md-6 col-lg-2">
@@ -30,10 +30,10 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-8">
-                            <a class="btn btn-success d-block w-100" href="/pet/update/{{pet.id}}">Güncelle</a>
+                            <a class="btn btn-success d-block w-100" href="/pet/update/{{pet.id}}">Update</a>
                         </div>
                         <div class="col-4">
-                            <a class="btn btn-danger d-block w-100" href="/pet/delete/{{pet.id}}">Sil</a>
+                            <a class="btn btn-danger d-block w-100" href="/pet/delete/{{pet.id}}">Delete</a>
                         </div>
                     </div>
                 </div>
