@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5">
+    <a class="navbar-brand" href="{% url 'homepage' %}">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% if request.user.is_authenticated and request.user.is_superuser %}
+                        Admin Profili
+                    {% else %}
+                        Kullanıcı Profili
+                    {% endif %}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a class="dropdown-item" href="{% url 'pet:pets' %}">Klinik</a>
+                            <a class="dropdown-item" href="{% url 'user:logout' %}">Çıkış Yap</a>
+                            <a class="dropdown-item" href="{% url 'user:petowner' user.username %}">Benim Sayfam</a>
+                        {%  else %}
+                            <a class="dropdown-item" href="{% url 'user:logout' %}">Çıkış Yap</a>
+                            <a class="dropdown-item" href="{% url 'user:petowner' user.username %}">Benim Sayfam</a>
+                        {% endif %}
+                    {% else %}
+                        <a class="dropdown-item" href="{% url 'user:register' %}">Kayıt Ol</a>
+                        <a class="dropdown-item" href="{% url 'user:login' %}">Giriş Yap</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">İletişim</a>
+            </li>
+        </ul>
+  </div>
+</nav>

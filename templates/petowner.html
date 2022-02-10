@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <header class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h4 class="text-center text-danger">{{user.first_name}} {{user.last_name}}</h4>
+                        <a class="btn btn-success" href="{% url 'pet:addpet' %}">Can Dostunu Kaydetmek İçin Tıkla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                {% for pet in pets %}
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h4>{{pet.name}}</h4>
+                                    <p>{{pet.type}}</p>
+                                    <p>{{pet.genius}}</p>
+                                    <p>{{pet.age}}</p>
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{pet.image.url}}" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+{% endblock %}

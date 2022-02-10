@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+Kliniğe Katıl
+{% endblock %}
+{% block body %}
+{% load crispy_forms_tags %}
+    <header class="container-fluid bg-warning">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <form method="POST" enctype="multipart/form-data">
+                        <h3>Yeni Dostumuz Kayıt Formu</h3>
+                        {% csrf_token %}
+                        {{form.media}}
+                        {{form|crispy}}
+                        <button type="submit" class="btn btn-success">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
