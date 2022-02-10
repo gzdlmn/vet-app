@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 {% block title %}
+Clinic Page for SuperUser
 {% endblock %}
 {% block body %}
     <header class="container-fluid mt-1">
         <div class="row">
             <div class="col-md-6 col-lg-4 m-auto">
                 <form method="GET">
-                    <p class="text-center">Aramak istediğiniz küçük dostumuzun adını girin</p>
+                    <p class="text-center">You can search by the name of the pet.</p>
                     {% for field in form %}
                         {{field}}
                     {% endfor %}
-                    <button type="submit" class="btn btn-dark d-block w-100">Ara</button>
+                    <button type="submit" class="btn btn-dark d-block w-100">Search</button>
                 </form>
             </div>
         </div>
     </header>
     <section class="container-fluid">
-        <h2 class="text-center text-muted">Klinikteki Tüm Kayıtlar</h2>
+        <h2 class="text-center text-muted">All Pets in Clinic</h2>
         <div class="container">
             <div class="row">
                 {% for pet in pets %}
@@ -27,16 +28,16 @@
                                 <div class="row">
                                     <div class="col-md-8 text-center">
                                         <h4>{{pet.name}}</h4>
-                                        <p>Tür: {{pet.type}}</p>
-                                        <p>Cins: {{pet.genius}}</p>
-                                        <p>Yaş: {{pet.age}}</p>
+                                        <p>Type: {{pet.type}}</p>
+                                        <p>Genius: {{pet.genius}}</p>
+                                        <p>Age: {{pet.age}}</p>
                                     </div>
                                     {% if pet.image %}
                                     <div class="col-md-4">
                                         <img src="{{pet.image.url}}" class="img-fluid">
                                     </div>
                                     {% endif %}
-                                    <a class="btn btn-success d-block w-100 mr-auto" href="/pet/detail/{{pet.id}}">Detaylar ve Düzenle</a>
+                                    <a class="btn btn-success d-block w-100 mr-auto" href="/pet/detail/{{pet.id}}">Edit Pet's Card</a>
                                 </div>
                             </div>
                          </div>
