@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% block title %}
-Anasayfa
+Home
 {% endblock %}
 {% block body %}
-    anasayfa
+    <header class="container-fluid home bg-warning">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:register' %}"><i class="bi bi-arrow-right"></i>Would you like to join us with your pet?</a>
+                    <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:login' %}"><i class="bi bi-arrow-right"></i>If you have an account, you can login</a>
+                </div>
+            </div>
+        </div>
+    </header>
 {% endblock %}
