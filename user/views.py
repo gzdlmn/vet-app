@@ -4,9 +4,9 @@ from .models import Petowner
 from . forms import RegisterForm,LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from pet.models import Pet,Petowner
+from pet.models import Pet
 # Create your views here.
-#kayıt ol
+#register
 def register(request):
     form=RegisterForm(request.POST or None)
     if form.is_valid():
@@ -23,7 +23,7 @@ def register(request):
         return redirect("homepage")
     return render(request, "register.html", {"form":form})
 
-#giriş yap
+#login
 def loginUser(request):
     form=LoginForm(request.POST or None)
     if form.is_valid():
@@ -38,7 +38,7 @@ def loginUser(request):
         return redirect("homepage")
     return render(request, "login.html", {"form":form})
 
-#çıkış yap
+#logout
 def logoutUser(request):
     logout(request)
     return redirect("homepage")
