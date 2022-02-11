@@ -34,11 +34,15 @@ def add_pet(request):
     return render(request, "addpet.html", {"form":form})
 
 #I need an id.  Because The user can have more than one animal. get_object_or_404 instead of filter
+@login_required(login_url="user:login")
+@user_passes_test(lambda u: u.is_superuser)
 def detail(request,id):
     pet = get_object_or_404(Pet, id=id)
     return render(request, "detail.html", {"pet":pet})
 
 #update. only superuser can see this page and edit
+@login_required(login_url="user:login")
+@user_passes_test(lambda u: u.is_superuser)
 def update(request, id):
     pet = get_object_or_404(Pet, id=id)
     form = PetForm(request.POST or None, request.FILES or None, instance=pet)
@@ -48,6 +52,8 @@ def update(request, id):
         return redirect("pet:pets")
     return render(request, "update.html", {"form":form})
 #delete. only superuser
+@login_required(login_url="user:login")
+@user_passes_test(lambda u: u.is_superuser)
 def delete(request, id):
     pet = get_object_or_404(Pet, id=id)
     pet.delete()
