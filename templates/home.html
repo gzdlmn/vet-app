@@ -10,7 +10,9 @@ Home
                     <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:register' %}"><i class="bi bi-arrow-right"></i>Would you like to join us with your pet?</a>
                     <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:login' %}"><i class="bi bi-arrow-right"></i>If you have an account, you can login</a>
                     {% if request.user.is_authenticated %}
-                    <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:petowner' user.username %}">You can add your path</a>
+                        {% if not request.user.is_superuser %}
+                            <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:petowner' user.username %}">You can add your path</a>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
