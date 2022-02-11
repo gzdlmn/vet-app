@@ -1,10 +1,5 @@
-body{
+.body{
     margin: 0 !important;
     padding: 0 !important;
 }
-.home{
-    top: 0;
-    left: 0;
-    position: relative;
-    height: auto;
-}
+
