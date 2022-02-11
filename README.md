@@ -24,6 +24,8 @@ A step by step list of commands / guide that informs how to install an instance 
 * ` python manage.py createsuperuser `
 
 # Screenshots
+![clinicpage](https://user-images.githubusercontent.com/85527587/153683078-d5f0050c-98f7-4c93-b521-c8d07d5366b4.png)
+![vetapp-mobile](https://user-images.githubusercontent.com/85527587/153684348-b453cd8c-121a-4064-9bdb-661486ee0cb1.png)
 
 # Features
 * Used Bootstrap4 to make it 100% responsive
