@@ -10,6 +10,7 @@ Username
                     <div class="card-header">
                         <h4 class="text-center text-danger">{{user.first_name}} {{user.last_name}}</h4>
                         <a class="btn btn-success" href="{% url 'pet:addpet' %}">Save your pet.</a>
+                        <h5>E-mail: {{user.email}}</h5>
                     </div>
                 </div>
             </div>

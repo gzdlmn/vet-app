@@ -7,8 +7,11 @@
             <div class="card">
                 <h2 class="text-center text-muted">Pet'S Identity Card</h2>
                 <div class="card-header">
-                    <h1 class="text-right">{{pet.petowner.first_name}} {{pet.petowner.last_name}}</h1>
-                    <div class="row">
+                    <h3 class="text-right">Petowner Name and Surname: {{pet.petowner.first_name}} {{pet.petowner.last_name}}</h3>
+                    <h3 class="text-right">Petowner E-mail : {{pet.petowner.email}}</h3>
+                </div>
+                <div class="card-body">
+                     <div class="row">
                         <div class="col-md-6 col-lg-10 text-center">
                             <h2>Name: {{pet.name}}</h2>
                             <h4>Type: {{pet.type}}</h4>
@@ -21,8 +24,6 @@
                         </div>
                         {% endif %}
                     </div>
-                </div>
-                <div class="card-body">
                     <div class="row">
                         <h5>{{pet.explanation}}</h5>
                     </div>
