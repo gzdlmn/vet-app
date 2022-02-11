@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
 from .models import Petowner
 from . forms import RegisterForm,LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from pet.models import Pet
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 #register
 def register(request):
@@ -43,6 +45,9 @@ def logoutUser(request):
     logout(request)
     return redirect("homepage")
 
+#username page
+#if the user is not logged in, when user writes this address to the browser, user see login page.(decorator's goal)
+@login_required(login_url="user:login")
 def petowner(request, username):
     user = get_object_or_404(User, username=username)
     pets = Pet.objects.filter(petowner=request.user)
