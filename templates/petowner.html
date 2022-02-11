@@ -6,17 +6,18 @@ Username
     <header class="container mt-5">
         <div class="row">
             <div class="col-md-6 m-auto">
-            {% if not  request.user.is_superuser %}
+            <!--{% if not  request.user.is_superuser %}-->
                 <div class="card shadow">
                     <div class="card-header">
                         <h4 class="text-center text-danger">{{user.first_name}} {{user.last_name}}</h4>
                         <a class="btn btn-success" href="{% url 'pet:addpet' %}">Save your new pet.</a>
+                        <h5>Username: {{user.username}}</h5>
                         <h5>E-mail: {{user.email}}</h5>
                         <h5>Tel: {{user.petowner.tel}}</h5>
                         <h5>Address: {{user.petowner.address}}</h5>
                     </div>
                 </div>
-            {% endif %}
+            <!--{% endif %}-->
             </div>
         </div>
         <div class="row">

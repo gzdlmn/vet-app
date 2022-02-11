@@ -6,7 +6,7 @@ from . forms import RegisterForm,LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from pet.models import Pet
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 # Create your views here.
 #register
 def register(request):
@@ -47,8 +47,13 @@ def logoutUser(request):
 
 #username page
 #if the user is not logged in, when user writes this address to the browser, user see login page.(decorator's goal)
+#if the user wants to go an another user page, you will see forbidden page
 @login_required(login_url="user:login")
 def petowner(request, username):
     user = get_object_or_404(User, username=username)
     pets = Pet.objects.filter(petowner=request.user)
-    return render(request, "petowner.html", {"user":user, "pets":pets})
+    petowner = get_object_or_404(Petowner, user=user)
+    if request.user.username == petowner.user.username:
+        return render(request, "petowner.html", {"user":user, "pets":pets, "petowner":petowner})
+    elif request.user.username != petowner.user.username:
+        return HttpResponseForbidden()
