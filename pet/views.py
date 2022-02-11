@@ -31,7 +31,7 @@ def add_pet(request):
         pet = form.save(commit=False)
         pet.petowner = request.user
         pet.save()
-        messages.success(request, "Your pet is registered to us clicic:)")
+        messages.success(request, "Your pet is registered to us clinic:)")
         return redirect("homepage")
     return render(request, "addpet.html", {"form":form})
 
