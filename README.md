@@ -6,7 +6,8 @@
 * Only super user can see detail page, update page, or delete.
 ###### if you are a user;
 * a user registers on the site. When you register you are online and then you can add your pet.
-* You can not see clinic page. You can see your own username page. 
+* You see User Profile on navigation bar.
+* You can not see clinic page. You can see your own username page in dropdown of User Profile.
 * You can not see another username page.
 
 # Requirements (Prerequisites)
@@ -30,6 +31,10 @@ A step by step list of commands / guide that informs how to install an instance 
 # Usage example
 
 # Running the tests
+* python manage.py migrate
+* python manage.py makemigrations
+* python manage.py createsuperuser
+* python manage.py runserver
 
 # Deployment Notes
 
