@@ -18,34 +18,19 @@ Tools and packages required to successfully install this project. For example:
 
 # Installation
 A step by step list of commands / guide that informs how to install an instance of this project.
-* $ git clone https://github.com/gzdlmn/vet-app.git
-* pip install django
-* pip install django-crispy-forms
-* python manage.py migrate
-* python manage.py createsuperuser
+* ` $ git clone https://github.com/gzdlmn/vet-app.git `
+* ` pip install -r requirements.txt `
+* ` python manage.py runserver `
+* ` python manage.py createsuperuser `
 
 # Screenshots
+![clinicpage](https://user-images.githubusercontent.com/85527587/153683078-d5f0050c-98f7-4c93-b521-c8d07d5366b4.png)
+![vetapp-mobile](https://user-images.githubusercontent.com/85527587/153684348-b453cd8c-121a-4064-9bdb-661486ee0cb1.png)
 
 # Features
 * Used Bootstrap4 to make it 100% responsive
 * Two different navbar screens, for user and super user!
 * There are many forbidden pages for user or superuser.(404)
+* Custom logo created using photoshop
 
-# Usage example
 
-# Running the tests
-* python manage.py makemigrations
-* python manage.py migrate
-* python manage.py runserver
-
-# Deployment Notes
-
-# Tech Stack / Built With
-
-# How to Contribute
-
-# Authors
-
-# Credits
-
-# License
