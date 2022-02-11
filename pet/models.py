@@ -10,7 +10,6 @@ from user.models import Petowner
 class Pet(models.Model):
     petowner = models.ForeignKey("auth.user", on_delete=models.CASCADE)
     image = models.FileField(null=True, blank=True, verbose_name="Image")
-    #Bilerek null blank = True bıraktık. Resim eklemek zorunde değil. Default bir resim koyacağız eklemezse.
     type = models.CharField(max_length=20, verbose_name="Type")
     genius = models.CharField(max_length=20, verbose_name="Genius")
     name = models.CharField(max_length=20, verbose_name="Name")
