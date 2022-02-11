@@ -9,8 +9,10 @@ Username
                 <div class="card shadow">
                     <div class="card-header">
                         <h4 class="text-center text-danger">{{user.first_name}} {{user.last_name}}</h4>
-                        <a class="btn btn-success" href="{% url 'pet:addpet' %}">Save your pet.</a>
+                        <a class="btn btn-success" href="{% url 'pet:addpet' %}">Save your new pet.</a>
                         <h5>E-mail: {{user.email}}</h5>
+                        <h5>Tel: {{user.petowner.tel}}</h5>
+                        <h5>Address: {{user.petowner.address}}</h5>
                     </div>
                 </div>
             </div>
