@@ -11,7 +11,7 @@ Home
                     <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:login' %}"><i class="bi bi-arrow-right"></i>If you have an account, you can login</a>
                     {% if request.user.is_authenticated %}
                         {% if not request.user.is_superuser %}
-                            <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:petowner' user.username %}">You can add your path</a>
+                            <a class="btn btn-dark d-block w-100 my-3" href="{% url 'user:petowner' user.username %}">You can add your pet</a>
                         {% endif %}
                     {% endif %}
                 </div>
