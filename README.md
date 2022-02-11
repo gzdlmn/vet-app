@@ -19,15 +19,8 @@ Tools and packages required to successfully install this project. For example:
 # Installation
 A step by step list of commands / guide that informs how to install an instance of this project.
 * $ git clone https://github.com/gzdlmn/vet-app.git
-* * Creates a virtual environment called `vet_env`
-* * python -m venv vet_env
-* * cd vet_app
-* * cd Scripts
-* * activate
-* * cd..
-* * cd..
 * pip install django
-* django-admin startproject vet
+* pip install django-crispy-forms
 * python manage.py migrate
 * python manage.py createsuperuser
 
