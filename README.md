@@ -18,10 +18,10 @@ Tools and packages required to successfully install this project. For example:
 
 # Installation
 A step by step list of commands / guide that informs how to install an instance of this project.
-* ``` $ git clone https://github.com/gzdlmn/vet-app.git ```
-* ``` pip install -r requirements.txt ```
-* ``` python manage.py runserver ```
-* ``` python manage.py createsuperuser ```
+* ` $ git clone https://github.com/gzdlmn/vet-app.git `
+* ` pip install -r requirements.txt `
+* ` python manage.py runserver `
+* ` python manage.py createsuperuser `
 
 # Screenshots
 
