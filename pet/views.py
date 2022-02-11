@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from user.views import petowner
 from .models import Pet
 from .forms import PetForm,SearchForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.db.models import Q
 from user.models import Petowner
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -37,8 +39,10 @@ def add_pet(request):
 @login_required(login_url="user:login")
 @user_passes_test(lambda u: u.is_superuser)
 def detail(request,id):
-    pet = get_object_or_404(Pet, id=id)
-    return render(request, "detail.html", {"pet":pet})
+    pet = get_object_or_404(Pet, id=id) #önemli çekilecek veri bu
+    user = get_object_or_404(User, pet=pet)
+    petowner = get_object_or_404(Petowner, user=user)
+    return render(request, "detail.html", {"pet":pet, "user":user, "petowner":petowner})
 
 #update. only superuser can see this page and edit
 @login_required(login_url="user:login")
@@ -51,6 +55,7 @@ def update(request, id):
         pet.save()
         return redirect("pet:pets")
     return render(request, "update.html", {"form":form})
+
 #delete. only superuser
 @login_required(login_url="user:login")
 @user_passes_test(lambda u: u.is_superuser)
