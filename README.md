@@ -10,7 +10,7 @@ Tools and packages required to successfully install this project. For example:
 A step by step list of commands / guide that informs how to install an instance of this project.
 * pip install django
 * pip install django-crispy-forms
-* pip install pillow
+
 
 # Screenshots
 
