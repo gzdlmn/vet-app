@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
-from .models import Petowner
-from . forms import RegisterForm,LoginForm
+from .models import Petowner,Meeting
+from . forms import RegisterForm,LoginForm,MeetingForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from pet.models import Pet
@@ -50,10 +50,19 @@ def logoutUser(request):
 #if the user wants to go an another user page, you will see forbidden page
 @login_required(login_url="user:login")
 def petowner(request, username):
+    list_hours = ["9","10","11","12","13","14","15","16","17","18","19","20"]
+    form = MeetingForm(request.POST or None)
+    if form.is_valid():
+        meeting = form.save(commit=False)
+        meeting.user = request.user
+        meeting.save()
+        messages.success(request, "You appointment day is created")
+        return redirect("homepage")
     user = get_object_or_404(User, username=username)
     pets = Pet.objects.filter(petowner=request.user)
+    pets_count = Pet.objects.filter(petowner=request.user).count()
     petowner = get_object_or_404(Petowner, user=user)
     if request.user.username == petowner.user.username:
-        return render(request, "petowner.html", {"user":user, "pets":pets, "petowner":petowner})
+        return render(request, "petowner.html", {"user":user, "pets":pets, "petowner":petowner, "form":form, "list_hours":list_hours, "pets_count":pets_count})
     elif request.user.username != petowner.user.username:
         return HttpResponseForbidden()
