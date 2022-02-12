@@ -28,8 +28,11 @@ A step by step list of commands / guide that informs how to install an instance 
 # Screenshots
 ![clinicpage](https://user-images.githubusercontent.com/85527587/153683078-d5f0050c-98f7-4c93-b521-c8d07d5366b4.png)
 ![vetapp-mobile](https://user-images.githubusercontent.com/85527587/153684348-b453cd8c-121a-4064-9bdb-661486ee0cb1.png)
+![userappointment](https://user-images.githubusercontent.com/85527587/153722316-459ca2f7-a7d5-45ef-bcce-d15a77a8ddf6.png)
+![appointments](https://user-images.githubusercontent.com/85527587/153722319-a44c6f36-28dd-4a32-abb0-447324133687.png)
 
 # Features
+
 * Used Bootstrap4 to make it 100% responsive
 * Two different navbar screens, for user and super user!
 * There are many forbidden pages for user or superuser.(404)
