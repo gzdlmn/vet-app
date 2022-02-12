@@ -3,10 +3,10 @@
 Username
 {% endblock %}
 {% block body %}
+{% load crispy_forms_tags %}
     <header class="container mt-5">
         <div class="row">
             <div class="col-md-8 col-lg-6 m-auto">
-            <!--{% if not  request.user.is_superuser %}-->
                 <div class="card shadow">
                     <div class="card-header">
                         <h4 class="text-center text-danger">{{user.first_name}} {{user.last_name}}</h4>
@@ -17,7 +17,6 @@ Username
                         <h5>Address: {{user.petowner.address}}</h5>
                     </div>
                 </div>
-            <!--{% endif %}-->
             </div>
         </div>
         <div class="row">
@@ -42,4 +41,49 @@ Username
             </div>
         </div>
     </header>
+    {% if pets %}
+        <section class="container my-2">
+            <div class="row">
+                <div class="col-md-8 m-auto text-center">
+                    <div class="card shadow">
+                        <h5 class="text-danger text-center p-2">You can make an appointment for your pet</h5>
+                        <small>You have {{pets_count}} pets</small>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                {% if field.label == "Appointment Hour" %}
+                                    <div class="row btn-group btn-group-toggle my-2 p-1" data-toggle="buttons" style="overflow:hidden;">
+                                        {% for i in list_hours %}
+                                            <div class="col-3 col-md-3 col-lg-2 mx-auto text-center p-0">
+                                                <label class="btn btn-dark"><input type="radio" name="meeting_hour" id="{{i}}" value="{{i}}" autocomplete="on">
+                                                    <p class="text-danger"><strong>{{i}}:00</strong></p>
+                                                </label>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% elif field.label == "Appointment Day" %}
+                                    <div class="row my-2">
+                                        <div class="col-12 text-center">
+                                            {{field}}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="row btn-group btn-group-toggle my-2" data-toggle="buttons">
+                                        {% for pet in pets %}
+                                            <div class="col-6">
+                                                 <label class="btn btn-dark"><input type="radio" name="pet" id="{{pet.id}}" value="{{pet.id}}" autocomplete="on">
+                                                    <p class="text-danger"><strong>{{pet.name}}</strong></p>
+                                                 </label>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <button class="btn btn-danger d-block w-75 m-auto">Make an appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}

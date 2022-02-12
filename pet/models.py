@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from user.models import Petowner
+
 
 
 # Create your models here.
@@ -16,3 +16,5 @@ class Pet(models.Model):
     age = models.CharField(max_length=4, verbose_name="Age")
     explanation = models.TextField(verbose_name="Explanation")
     created_date = models.DateField(auto_now_add=True, verbose_name="Created Date")
+
+

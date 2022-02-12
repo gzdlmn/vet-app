@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Petowner
+from .models import Petowner,Meeting
+#for calender
+from django.forms.widgets import NumberInput
 
 
 class RegisterForm(forms.ModelForm):
@@ -32,3 +34,11 @@ class LoginForm(forms.Form):
         fields=["username","password"]
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
+
+class MeetingForm(forms.ModelForm):
+    meeting_hour = forms.ChoiceField(choices=Meeting.CHOICES ,label="Appointment Hour", widget=forms.RadioSelect())
+    meeting_date = forms.DateField(label="Appointment Day", widget=NumberInput(attrs={'type':'date'}))
+    class Meta:
+        model = Meeting
+        fields = ["meeting_hour", "meeting_date", "pet"]
+
