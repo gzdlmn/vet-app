@@ -56,7 +56,7 @@ def petowner(request, username):
         meeting = form.save(commit=False)
         meeting.user = request.user
         meeting.save()
-        messages.success(request, "You appointment day is created")
+        messages.success(request, "Your appointment date has been created")
         return redirect("homepage")
     user = get_object_or_404(User, username=username)
     pets = Pet.objects.filter(petowner=request.user)
