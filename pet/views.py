@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.db.models import Q
 from user.models import Petowner,Meeting
 from django.contrib.auth.models import User
+from datetime import date
 
 
 
@@ -23,8 +24,9 @@ def all_pets(request):
             pets = Pet.objects.filter(Q(name__icontains=search)).distinct()
             return render(request, "pets.html", {"pets": pets, "form":form})
     pets = Pet.objects.all()
+    today = date.today()
     meetings = Meeting.objects.all()
-    return render(request, "pets.html", {"pets": pets, "form":form, "meetings":meetings})
+    return render(request, "pets.html", {"pets": pets, "form":form, "meetings":meetings, "today":today})
 
 #User will come here after registration and then he/she will write his/her pet's attr.
 def add_pet(request):
