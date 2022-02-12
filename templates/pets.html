@@ -66,7 +66,7 @@ Clinic Page for SuperUser
                     {% for meeting in meetings %}
                         <tr>
                             <td>{{meeting.user.first_name}} {{meeting.user.last_name}}</td>
-                            <td>{{meeting.pet.name}}</td>
+                            <td><a href="/pet/detail/{{meeting.pet.id}}">{{meeting.pet.name}}</a></td>
                             <td>{{meeting.meeting_date}}</td>
                             <td>{{meeting.meeting_hour}}:00</td>
                         </tr>
