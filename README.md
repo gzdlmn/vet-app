@@ -9,6 +9,10 @@
 * You see User Profile on navigation bar.
 * You can not see clinic page. You can see your own username page in dropdown of User Profile.
 * You can not see another username page.
+##### new features have been added. (appointment branch)
+* A user can make an appointment from her/his own page. You choose,hour,day and your pet.
+* Superuser can see all appointments on clinic page.
+  
 
 # Requirements (Prerequisites)
 Tools and packages required to successfully install this project. For example:
