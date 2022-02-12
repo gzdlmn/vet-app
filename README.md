@@ -13,8 +13,6 @@
 # Requirements (Prerequisites)
 Tools and packages required to successfully install this project. For example:
 * python 3.8
-* django 3.1.3
-* pip install django-crispy-forms
 
 # Installation
 A step by step list of commands / guide that informs how to install an instance of this project.
