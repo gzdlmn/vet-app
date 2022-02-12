@@ -22,5 +22,5 @@ class Meeting(models.Model):
     meeting_date = models.DateField(auto_now_add=False, null=True, blank=False)
     class Meta:
         verbose_name_plural = "Meeting Time"
-        ordering = ["meeting_date"]
+        ordering = ["meeting_date", "meeting_hour"]
 
