@@ -51,26 +51,28 @@ Clinic Page for SuperUser
     </section>
     {% if meetings %}
     <section class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Petowner</th>
-                    <th scope="col">Pet</th>
-                    <th scope="col">Appointment Day</th>
-                    <th scope="col">Appointment Hour</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for meeting in meetings %}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{meeting.user.first_name}} {{meeting.user.last_name}}</td>
-                        <td>{{meeting.pet.name}}</td>
-                        <td>{{meeting.meeting_date}}</td>
-                        <td>{{meeting.meeting_hour}}:00</td>
+                        <th scope="col">Petowner</th>
+                        <th scope="col">Pet</th>
+                        <th scope="col">Appointment Day</th>
+                        <th scope="col">Appointment Hour</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for meeting in meetings %}
+                        <tr>
+                            <td>{{meeting.user.first_name}} {{meeting.user.last_name}}</td>
+                            <td>{{meeting.pet.name}}</td>
+                            <td>{{meeting.meeting_date}}</td>
+                            <td>{{meeting.meeting_hour}}:00</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </section>
     {% endif %}
 {% endblock %}
