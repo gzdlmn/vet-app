@@ -16,3 +16,4 @@ class PetForm(forms.ModelForm):
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class':'form-control'}))
 
+

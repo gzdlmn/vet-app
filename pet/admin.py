@@ -13,4 +13,3 @@ class PetAdmin(admin.ModelAdmin):
         model = Pet
         verbose_name_plural = "Pet"
 
-

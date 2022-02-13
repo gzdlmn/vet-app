@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
 # Create your models here.
 #created pet model. I used user model which is in django.
 #there is a petowner for each pet. if petowner is deleted, pet will delete. (on_delete means that)

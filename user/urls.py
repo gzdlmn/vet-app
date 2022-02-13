@@ -9,4 +9,5 @@ urlpatterns=[
     path('login/', views.loginUser, name="login"),
     path('logout/', views.logoutUser, name="logout"),
     path('petowner/<username>', views.petowner, name="petowner"), #special page for user /petowner/username/blablaba..
+    path('appointments/', views.meeting, name="appointments")
 ]

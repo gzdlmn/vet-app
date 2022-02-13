@@ -10,4 +10,3 @@ class PetownerAdmin(admin.ModelAdmin):
 @admin.register(Meeting)
 class MeetingAdmin(admin.ModelAdmin):
     list_display = ["user", "pet", "meeting_hour", "meeting_date"]
-

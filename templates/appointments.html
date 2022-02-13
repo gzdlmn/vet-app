@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="container">
+        <h3 class="text-center text-success">{{today}}</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Petowner</th>
+                        <th scope="col">Pet</th>
+                        <th scope="col">Appointment Day</th>
+                        <th scope="col">Appointment Hour</th>
+                        <th scope="col">Attended / not Attended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for meeting in meetings %}
+                        <tr>
+                            <td>{{meeting.user.first_name}} {{meeting.user.last_name}}</td>
+                            <td><a href="/pet/detail/{{meeting.pet.id}}">{{meeting.pet.name}}</a></td>
+                            <td>{{meeting.meeting_date}}</td>
+                            <td>{{meeting.meeting_hour}}:00</td>
+                            <td>
+                              sasasasas
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

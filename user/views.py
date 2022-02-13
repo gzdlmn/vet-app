@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from pet.models import Pet
 from django.contrib.auth.decorators import login_required,user_passes_test
+from datetime import date
 # Create your views here.
 #register
 def register(request):
@@ -66,3 +67,8 @@ def petowner(request, username):
         return render(request, "petowner.html", {"user":user, "pets":pets, "petowner":petowner, "form":form, "list_hours":list_hours, "pets_count":pets_count})
     elif request.user.username != petowner.user.username:
         return HttpResponseForbidden()
+
+def meeting(request):
+    today = date.today()
+    meetings = Meeting.objects.all()
+    return render(request, "appointments.html", {"meetings":meetings, "today":today})

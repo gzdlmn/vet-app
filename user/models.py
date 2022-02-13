@@ -24,3 +24,6 @@ class Meeting(models.Model):
         verbose_name_plural = "Meeting Time"
         ordering = ["meeting_date", "meeting_hour"]
 
+
+
+
