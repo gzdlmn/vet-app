@@ -10,7 +10,7 @@
                         <th scope="col">Pet</th>
                         <th scope="col">Appointment Day</th>
                         <th scope="col">Appointment Hour</th>
-                        <th scope="col">Attended / not Attended</th>
+                        <th scope="col">You can remove the appointment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,9 +20,7 @@
                             <td><a href="/pet/detail/{{meeting.pet.id}}">{{meeting.pet.name}}</a></td>
                             <td>{{meeting.meeting_date}}</td>
                             <td>{{meeting.meeting_hour}}:00</td>
-                            <td>
-                              sasasasas
-                            </td>
+                            <td><a href="/pet/delete_meeting/{{meeting.id}}" class="btn btn-danger">Delete Appointment</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

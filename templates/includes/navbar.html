@@ -18,7 +18,7 @@
                         {% if request.user.is_superuser %}
                             <a class="dropdown-item" href="{% url 'pet:pets' %}">Clinic</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'user:appointments' %}">All Appointments</a>
+                            <a class="dropdown-item" href="{% url 'pet:appointments' %}">All Appointments</a>
                             <a class="dropdown-item" href="{% url 'user:logout' %}">Logout</a>
                         {%  else %}
                             <a class="dropdown-item" href="{% url 'user:petowner' user.username %}">My Page</a>

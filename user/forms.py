@@ -1,12 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Petowner,Meeting
-#for calender
+from .models import Petowner, Meeting
+# for calender
 from django.forms.widgets import NumberInput
 
-
 class RegisterForm(forms.ModelForm):
-    username=forms.CharField(label="Username")
+    username = forms.CharField(label="Username")
     password = forms.CharField(label="Password", widget=forms.PasswordInput())
     first_name = forms.CharField(label="First Name", required=True)
     last_name = forms.CharField(label="Last Name", required=True)
@@ -14,8 +13,8 @@ class RegisterForm(forms.ModelForm):
     tel = forms.CharField(label="Phone", required=True)
     address = forms.CharField(label="Address", required=False)
     class Meta:
-        model=User
-        fields=["username","password", "first_name", "last_name", "email", "tel", "address"]
+        model = User
+        fields=["username", "password", "first_name", "last_name", "email", "tel", "address"]
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
 
@@ -27,16 +26,17 @@ class RegisterForm(forms.ModelForm):
         return username
 
 class LoginForm(forms.Form):
-    username=forms.CharField(label="Username")
-    password=forms.CharField(label="Password", widget=forms.PasswordInput())
+    username = forms.CharField(label="Username")
+    password = forms.CharField(label="Password", widget=forms.PasswordInput())
     class Meta:
-        model=User
+        model = User
         fields=["username","password"]
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
 
+# make an appointment
 class MeetingForm(forms.ModelForm):
-    meeting_hour = forms.ChoiceField(choices=Meeting.CHOICES ,label="Appointment Hour", widget=forms.RadioSelect())
+    meeting_hour = forms.ChoiceField(choices=Meeting.CHOICES, label="Appointment Hour", widget=forms.RadioSelect)
     meeting_date = forms.DateField(label="Appointment Day", widget=NumberInput(attrs={'type':'date'}))
     class Meta:
         model = Meeting

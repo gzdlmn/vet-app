@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.db.models import Q
 from user.models import Petowner,Meeting
 from django.contrib.auth.models import User
-
+from datetime import date
 
 
 
@@ -64,4 +64,18 @@ def update(request, id):
 def delete(request, id):
     pet = get_object_or_404(Pet, id=id)
     pet.delete()
+    return redirect("pet:pets")
+
+# Superuser can see all appointments. This page is only superuser
+@login_required(login_url="user:login")
+@user_passes_test(lambda u: u.is_superuser)
+def meeting(request):
+    today = date.today()
+    meetings = Meeting.objects.all()
+    return render(request, "appointments.html", {"meetings": meetings, "today": today})
+
+# if superuser can delete it when the appointment time has passed.
+def delete_meeting(request, id):
+    meeting = get_object_or_404(Meeting, id=id)
+    meeting.delete()
     return redirect("pet:pets")

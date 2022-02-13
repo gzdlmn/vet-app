@@ -13,7 +13,7 @@ class Petowner(models.Model):
     def __str__(self):
         return "{} - {} - {}".format(self.user, self.tel, self.address)
 
-#new model, make an appoinment. A user can make an appoinment for her/his pet. He/she can choose time.
+#new model, make an appoinment. A user can make an appoinment for her/his pet. He/she can choose your pet,hour and day.
 class Meeting(models.Model):
     user = models.ForeignKey(User, null=True, blank=False, on_delete=models.CASCADE)
     pet = models.ForeignKey(Pet, null=True,blank=False, on_delete=models.CASCADE)
