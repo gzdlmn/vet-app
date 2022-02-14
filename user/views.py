@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponseRedirect
 from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
 from .models import Petowner, Meeting
-from . forms import RegisterForm, LoginForm, MeetingForm
+from . forms import RegisterForm, LoginForm, MeetingForm, RegisterupdateForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from pet.models import Pet
@@ -25,6 +25,24 @@ def register(request):
         messages.info(request, "Your account has been created successfully")
         return redirect("homepage")
     return render(request, "register.html", {"form": form})
+
+# User can update her/his register form, especialy tel,adress,last_name is necessary
+def update_register(request):
+    tel = request.user.petowner.tel
+    address = request.user.petowner.address
+    initial = {"tel": tel, "address": address}
+    form = RegisterupdateForm(request.POST or None, instance=request.user, initial=initial)
+    if form.is_valid():
+        user = form.save(commit=True)
+        tel = form.cleaned_data.get("tel", None)
+        address = form.cleaned_data.get("address", None)
+        user.petowner.tel = tel
+        user.petowner.address = address
+        user.petowner.save()
+        messages.success(request, "updated your account")
+        return HttpResponseRedirect(reverse("user:petowner", kwargs={"username":user.username}))     # kwargs means that, user/petowner/sophia
+    return render(request, "update-register.html", {"form":form})
+
 
 # login
 def loginuser(request):

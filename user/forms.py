@@ -25,6 +25,14 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError("This username is registered in the system. Please choose another username.")
         return username
 
+# User can update your information. Especially tel,address
+class RegisterupdateForm(forms.ModelForm):
+    tel = forms.CharField(label="Phone", required=True)
+    address = forms.CharField(label="Address", required=False)
+    class Meta:
+        model = User
+        fields = ["username", "first_name", "last_name", "email", "tel", "address"]
+
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username")
     password = forms.CharField(label="Password", widget=forms.PasswordInput())

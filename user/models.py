@@ -4,7 +4,7 @@ from pet.models import Pet
 
 # petowner means that who has a pet.I will add some fields to the ready user model. So onetoone or foreignkey.
 class Petowner(models.Model):
-    user = models.OneToOneField(User, null=True, blank=False, verbose_name="User", on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, blank=False, verbose_name="User", on_delete=models.SET_NULL)  #CASCADE olacak update formu denemek için!!!
     tel = models.CharField(max_length=13, verbose_name="Phone")
     address = models.CharField(max_length=100, verbose_name="Address")
     class Meta:
