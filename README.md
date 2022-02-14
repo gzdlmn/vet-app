@@ -28,8 +28,8 @@ A step by step list of commands / guide that informs how to install an instance 
 # Screenshots
 ![clinicpage](https://user-images.githubusercontent.com/85527587/153683078-d5f0050c-98f7-4c93-b521-c8d07d5366b4.png)
 ![vetapp-mobile](https://user-images.githubusercontent.com/85527587/153684348-b453cd8c-121a-4064-9bdb-661486ee0cb1.png)
-![userappointment](https://user-images.githubusercontent.com/85527587/153728960-9b36d5d8-0995-4f12-9ba9-baafa6486559.png)
-![appointmentday](https://user-images.githubusercontent.com/85527587/153731772-430430c3-574e-4644-b4ff-4b7b74ee7202.png)
+![petownerpage](https://user-images.githubusercontent.com/85527587/153848716-7768c2a8-2bd7-4e9e-9146-32e8c680c771.png)
+![allappointments](https://user-images.githubusercontent.com/85527587/153848741-609eea36-6a65-45cb-94fd-68323f2bcdfd.png)
 
 
 # Features
@@ -38,5 +38,6 @@ A step by step list of commands / guide that informs how to install an instance 
 * Two different navbar screens, for user and super user!
 * There are many forbidden pages for user or superuser.(404)
 * Custom logo created using photoshop
+
 
 
