@@ -11,7 +11,7 @@
 * You can not see another username page.
 ##### new features have been added. (appointment branch)
 * A user can make an appointment from her/his own page. You choose,hour,day and your pet.
-* Superuser can see all appointments on clinic page.
+* Superuser can see all appointments on appointments page and a super user can delete
   
 
 # Requirements (Prerequisites)
